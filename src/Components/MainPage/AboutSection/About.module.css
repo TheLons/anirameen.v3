@@ -1,0 +1,39 @@
+.aboutSection {
+    width: 100%;
+    height: 60vh;
+
+    padding: 0;
+    margin: 0;
+    background-color: #111111;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--main-color);
+}
+
+.descContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.descContainer h2, .descContainer p {
+    padding: 0;
+    margin: 0;
+}
+
+.descContainer p {
+    margin: 0;
+    padding: 0;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
