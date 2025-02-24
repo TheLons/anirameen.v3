@@ -41,8 +41,8 @@
 
 .tagsContainer {
     position: absolute;
-    bottom: 28px;
-    right: 28px;
+    bottom: 36px;
+    right: 36px;
     display: flex;
 }
 
@@ -50,4 +50,63 @@
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    width: 314px;
+    height: 121px;
+}
+
+.tags p {
+    border: 1px solid white;
+    padding: 4px 12px;
+    font-weight: 800;
+    transition: all ease .15s;
+}
+
+.tags p:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.qrCode {
+    height: 121px;
+}
+
+.qrCode img {
+    height: 100%;
+}
+
+.arrowMore {
+    position: absolute;
+    bottom: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.arrowMore img {
+    height: 30px;
+}
+
+.headerLink {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    white-space: preserve nowrap;
+    text-decoration: none;
+    color: white;
+    transition: all ease 0.15s;
+}
+
+.headerLink:hover {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.headerLinkHovered {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
