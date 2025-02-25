@@ -63,7 +63,7 @@
 
 .tags p:hover {
     cursor: pointer;
-    background-color: white;
+    background-color: var(--main-color);
     color: black;
 }
 
