@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
+import React, { useEffect, useRef } from 'react'
+import { motion, useAnimation, useTransform, useScroll } from 'framer-motion'
 import styles from './HeroSection.module.css'
 
 import qrCode from '../../../assets/icons/qrCode.png'
@@ -64,17 +64,25 @@ const FlipLink = ({ children, href }) => {
 }
 
 const HeroSection = () => {
+  // const ref = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start start", "end start"],
+  // })
+
+  // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // console.log(ref);
+
   return (
     <>
-    <section className={styles.heroSection}>
+    <motion.div className={styles.heroSection}>
       <div className={styles.shadowBox}></div>
       <div className={styles.header}>
         <p><FlipLink href="#">ANIRAMEEN</FlipLink></p>
       </div>
       <header className={styles.headerMenu}>
         <ul>
-          <li><FlipLink href="#">BIO,</FlipLink></li>
-          <li><FlipLink href="#">WORKS,</FlipLink></li>
+          <li><FlipLink href="#">VIDEO_PROJECTS,</FlipLink></li>
           <li><FlipLink href="#">GALLERY,</FlipLink></li>
           <li><FlipLink href="#">CONTACTS,</FlipLink></li>
         </ul>
@@ -88,12 +96,12 @@ const HeroSection = () => {
           <p>Video</p>
           <p>Cinema</p>
         </div>
-        <div className={styles.qrCode}>
-          <img src={qrCode} alt="QR code" />
-        </div>
+      </div>
+      <div className={styles.qrCode}>
+        <img src={qrCode} alt="QR code" />
       </div>
       <InfiniteUpDown />
-    </section>
+    </motion.div>
     </>
   )
 }

@@ -1,6 +1,6 @@
 .aboutSection {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
 
     padding: 0;
     margin: 0;
@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
 }
 
 .descContainer {
@@ -19,16 +20,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     gap: 40px;
     width: 80vw;
-    max-width: 1000px;
+    max-width: var(--width-max);
     height: 50vh;
     max-height: 400px;
 }
 
 .title {
     display: flex;
-    width: 80%;
+    width: 100%;
+}
+
+.title h2 {
+    font-weight: 900;
+    font-size: 40px;
+    background-image: var(--main-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
 }
 
 .descContainer h2, .descContainer p {
@@ -43,10 +54,11 @@
 
 .description {
     display: flex;
-    width: 80%;
+    width: 100%;
     flex-direction: column;
-    color: #B3B3B3;
-    /* align-items: center; */
+    color: var(--second-text-color);
+    font-size: 32px;
+    font-weight: 400;
 }
 
 #topRight, #topLeft, #bottomRight, #bottomLeft {
@@ -79,12 +91,27 @@
 .experience {
     display: flex;
     justify-content: space-evenly;
-    width: 80%;
+    width: 100%;
     align-items: center;
 }
 
-.experience p {
-    width: 30%;
+.experience_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: auto;
+    align-items: center;
+    color: var(--second-text-color);
+    font-size: 20px;
+    width: 207px;
     text-align: center;
-    font-weight: 600;
+}
+
+.years {
+    background-image: var(--main-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+    font-size: 40px;
+    font-weight: 900;
 }

@@ -1,15 +1,33 @@
 .heroSection {
     width: 100%;
     height: 100vh;
-    background-image: url('../../../assets/backgrounds/mainBackground.JPG');
+    background-image: url('../../../assets/backgrounds/mainBackground.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 50% 25%;
 
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
+
+    position: relative;
+    z-index: 0;
+
+    overflow: hidden;
 }
+
+/* .backgroundImage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/backgrounds/mainBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 25%;
+    top: 0;
+    z-index: 0;
+} */
 
 .shadowBox {
     position: absolute;
@@ -17,7 +35,7 @@
     left: 20px;
     right: 20px;
     bottom: 20px;
-    box-shadow: 0 0 0 50px rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.25);
     box-sizing: border-box;
 }
 
@@ -25,24 +43,27 @@
     position: absolute;
     top: 28px;
     left: 28px;
+
+    padding: 0px 19px;
     font-size: 40px;
     font-weight: 800;
 }
 
 .headerMenu {
     position: absolute;
-    top: 28px;
-    right: 28px;
+    top: 112px;
+    left: 28px;
+
+    padding: 23px 19px;
 
     font-size: 40px;
     font-weight: 800;
-    text-align: right;
 }
 
 .tagsContainer {
     position: absolute;
     bottom: 36px;
-    right: 36px;
+    left: 36px;
     display: flex;
 }
 
@@ -68,6 +89,9 @@
 }
 
 .qrCode {
+    position: absolute;
+    bottom: 36px;
+    right: 36px;
     height: 121px;
 }
 

@@ -1,0 +1,107 @@
+.awardsContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    width: var(--width-max);
+}
+
+.title h2 {
+    font-weight: 900;
+    font-size: 40px;
+    background-image: var(--main-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.awardsContent {
+    height: 650px;
+    width: var(--width-max);
+}
+
+.award {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    overflow: hidden;
+    transition: all ease .5s;
+    position: relative;
+}
+
+.award::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, #165D69, #161616);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+.award.active {
+    height: 230px;
+}
+
+.award.active::before {
+    opacity: 1;
+}
+
+.award > * {
+    position: relative;
+    z-index: 1;
+}
+
+.preview {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.previewMain {
+    height: 100%;
+    width: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.logoContainer {
+    height: 80px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.logoContainer img {
+    height: 80%;
+}
+
+.name {
+    height: 100%;
+    width: auto;
+}
+
+.information {
+    height: 80px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.description {
+    width: calc(100% - 130px);
+    height: 150px;
+    padding-left: 130px;
+    padding-top: 20px;
+}

@@ -10,8 +10,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --main-color: #EACB00;
+  --main-color: #6ED5E5;
+  --main-gradient: linear-gradient(to right top, #6ED5E5, #266A75);
+  --second-text-color: #B3B3B3;
   --background-color: #111111;
+  --width-max: 1260px;
 }
 
 html,
