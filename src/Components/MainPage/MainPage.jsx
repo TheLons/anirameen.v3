@@ -7,6 +7,7 @@ import PhotoSection from './PhotoSection/PhotoSection';
 import PartnerSection from './PartnerSection/PartnerSection';
 import ReviewsSection from './PartnerSection/ReviewsSection';
 import AwardsSection from './AwardsSection/AwardsSection';
+import ContactSection from './ContactSection/ContactSection';
 
 import { motion, useScroll, useTransform } from "framer-motion"
 
@@ -34,6 +35,7 @@ const MainPage = () => {
             <PartnerSection />
             <ReviewsSection />
             <AwardsSection />
+            <ContactSection />
         </div>
     )
 }
