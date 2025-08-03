@@ -3,16 +3,18 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import './App.css'
 
 import MainPage from './Components/MainPage/MainPage'
-import Header from './Components/Utils/Header/Header'
+import VideoPage from './Components/VideoPage/VideoPage'
+import PhotoPage from './Components/PhotoPage/PhotoPage'
 
 function App() {
 
   return (
     <Router>
-      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="Home" element={<MainPage />} />
+        <Route path="/Home" element={<MainPage />} />
+        <Route path="/Video" element={<VideoPage />}/>
+        <Route path="/photo" element={<PhotoPage />}/>
       </Routes>
     </Router>
   )

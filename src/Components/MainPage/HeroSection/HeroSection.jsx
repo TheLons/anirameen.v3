@@ -73,17 +73,24 @@ const HeroSection = () => {
   // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   // console.log(ref);
 
+
   return (
     <>
-    <motion.div className={styles.heroSection}>
+    <motion.div 
+      className={styles.heroSection}>
       <div className={styles.shadowBox}></div>
-      <div className={styles.header}>
+      <motion.div 
+        className={styles.header}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         <p><FlipLink href="#">ANIRAMEEN</FlipLink></p>
-      </div>
+      </motion.div>
       <header className={styles.headerMenu}>
         <ul>
-          <li><FlipLink href="#">VIDEO_PROJECTS,</FlipLink></li>
-          <li><FlipLink href="#">GALLERY,</FlipLink></li>
+          <li><FlipLink href="/Video">VIDEO_PROJECTS,</FlipLink></li>
+          {/* <li><FlipLink href="/photo">GALLERY,</FlipLink></li> */}
           <li><FlipLink href="#">CONTACTS,</FlipLink></li>
         </ul>
       </header>
