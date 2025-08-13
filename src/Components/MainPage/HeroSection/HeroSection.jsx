@@ -72,7 +72,19 @@ const HeroSection = () => {
 
   // const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   // console.log(ref);
+  
+  useEffect(() => {
+    // Small delay to ensure DOM is fully loaded
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+    }, 100);
 
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>

@@ -4,7 +4,7 @@ import './App.css'
 
 import MainPage from './Components/MainPage/MainPage'
 import VideoPage from './Components/VideoPage/VideoPage'
-import PhotoPage from './Components/PhotoPage/PhotoPage'
+// import PhotoPage from './Components/PhotoPage/PhotoPage'
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/Home" element={<MainPage />} />
         <Route path="/Video" element={<VideoPage />}/>
-        <Route path="/photo" element={<PhotoPage />}/>
+        {/* <Route path="/photo" element={<PhotoPage />}/> */}
       </Routes>
     </Router>
   )

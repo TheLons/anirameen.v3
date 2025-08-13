@@ -1,53 +1,129 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './VideoSection.module.css'
 import playLogo from '../../../assets/icons/playLogo.svg'
-import { p } from 'framer-motion/client'
+import { motion, useInView } from 'framer-motion'
 
 import ArrowRight from '../../../assets/icons/arrowRight.png'
 
 const VideoSection = () => {
+    const ref = useRef(null)
+    const inView = useInView(ref, { once: true, amount: 0.3 });
+    const [selectedVideo, setSelectedVideo] = useState(null);
+
+    const containerVariants = {
+        hidden: { 
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1,
+            },
+        },
+    }
+
+    const itemVariants = {
+        hidden: { 
+            opacity: 0,
+            y: 30,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { 
+                duration: 0.8,
+                ease: "easeOut",
+            },
+        },
+    }
+
     const video_preview_urls = [
         {
+            id: 'vct-pacific',
             video_prev : "src/assets/videoPreview/riot.png",
-            video_url: "https://www.youtube.com/watch?v=89BG9hEGI04&ab_channel=VALORANTEsportsSouthAsia",
+            video_url: "https://player.vimeo.com/video/1108432715?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
             video_heading: "VCT Pacific Trophy",
-            video_text: "Video Editor"
+            video_text: "Video Editor",
+            hasVideo: true
         },
         {
+            id: 'koru-pharma',
             video_prev: "src/assets/videoPreview/koru.png",
-            video_url: "https://www.youtube.com/watch?v=89BG9hEGI04&ab_channel=VALORANTEsportsSouthAsia",
+            video_url: "https://www.youtube.com/embed/gp0TV-b1XaM?si=GT0yKfr2Xa8H8OK_",
             video_heading: "Koru Pharma",
-            video_text: "Video Director / Video Editor"
+            video_text: "Video Director / Video Editor",
+            hasVideo: true
         },
         {
+            id: 'bmw-racing',
             video_prev: "src/assets/videoPreview/car.png",
             video_url: "https://www.youtube.com/watch?v=89BG9hEGI04&ab_channel=VALORANTEsportsSouthAsia",
             video_heading: "BMW Racing",
-            video_text: "Video Director / Video Editor"
+            video_text: "Video Director / Video Editor",
+            hasVideo: false
         }
     ]
 
+    const handleVideoClick = (video) => {
+        if (video.hasVideo) {
+            setSelectedVideo(video);
+        }
+    };
+
+    const closeVideo = () => {
+        setSelectedVideo(null);
+    };
+
     return (
         <div className={styles.videoSection}>
-            <div className={styles.container}>
-                <div className={styles.title}>
+            <motion.div 
+                className={styles.container} 
+                ref={ref} 
+                initial="hidden" 
+                animate={inView ? 'visible' : 'hidden'} 
+                variants={containerVariants}
+            >
+                <motion.div className={styles.title} variants={itemVariants}>
                     <h2>video projects.</h2>
-                </div>
+                </motion.div>
                 <div className={styles.videoContainer}>
-                    {VideoCard(video_preview_urls[0])}
-                    {VideoCard(video_preview_urls[1])}
-                    {VideoCard(video_preview_urls[2])}
-                    {VideoCard(video_preview_urls[2])}
+                    {video_preview_urls.map((video, index) => (
+                        <motion.div
+                            key={index}
+                            variants={itemVariants}
+                            style={{ display: 'inline-block' }}
+                        >
+                            <VideoCard 
+                                {...video} 
+                                onClick={() => handleVideoClick(video)}
+                            />
+                        </motion.div>
+                    ))}
                 </div>
-            </div>
-            <a className={styles.showMore}>
+            </motion.div>
+            <motion.a 
+                className={styles.showMore}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ 
+                    duration: 0.8,
+                    ease: "easeOut",
+                    delay: 1.2, // Appears after all videos
+                }}
+            >
                 <p>Show more</p>
-            </a>
+            </motion.a>
+
+            {/* Video Modal */}
+            {selectedVideo && (
+                <VideoModal video={selectedVideo} onClose={closeVideo} />
+            )}
         </div>
     )
 }
 
-const VideoCard = ({ video_prev, video_url, video_heading, video_text }) => {
+const VideoCard = ({ video_prev, video_heading, video_text, hasVideo, onClick }) => {
     const heading = video_heading.split('\n').map((item, i) => {
         return (
             <p className={styles.videoHeading} key={i}>{item}</p>
@@ -60,10 +136,18 @@ const VideoCard = ({ video_prev, video_url, video_heading, video_text }) => {
     })
 
     return (
-        <div className={styles.video}>
+        <div 
+            className={`${styles.video} ${hasVideo ? styles.clickable : ''}`}
+            onClick={onClick}
+        >
             <div className={styles.videoContent} style={{
                 backgroundImage: `url(${video_prev})`,
             }}>
+                {hasVideo && (
+                    <div className={styles.playOverlay}>
+                        <img src={playLogo} alt="Play" />
+                    </div>
+                )}
                 <div className={styles.description}>
                     {heading}
                     {text}
@@ -72,5 +156,54 @@ const VideoCard = ({ video_prev, video_url, video_heading, video_text }) => {
         </div>
     )
 }
+
+const VideoModal = ({ video, onClose }) => {
+    const handleBackdropClick = (e) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+            onClose();
+        }
+    };
+
+    return (
+        <div 
+            className={styles.videoModalOverlay}
+            onClick={handleBackdropClick}
+            onKeyDown={handleKeyDown}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="video-modal-title"
+        >
+            <div className={styles.videoModalContent}>
+                <button 
+                    className={styles.closeButton}
+                    onClick={onClose}
+                    aria-label="Close video"
+                >
+                    ×
+                </button>
+                <h2 id="video-modal-title" className={styles.videoModalTitle}>
+                    {video.video_heading}
+                </h2>
+                <div className={styles.videoWrapper}>
+                    <iframe 
+                        src={video.video_url}
+                        width="100%"
+                        height="100%"
+                        frameBorder="0"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        title={video.video_heading}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default VideoSection

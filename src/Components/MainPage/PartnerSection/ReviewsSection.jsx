@@ -1,49 +1,47 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import styles from './ReviewsSection.module.css'
-
-const inputContent = [
-  {
-    name: "Koru Pharma",
-    content: "I couldn't be happier with this purchase! From the moment I received it, I could tell that a lot of thought had gone into the design and craftsmanship. The material feels premium, and the attention to detail is evident in every aspect. Not only does it function perfectly, but it also adds a touch of elegance to my space. The ordering process was seamless, and the delivery was quicker than expected. Customer service was also incredibly responsive, addressing my questions right away. Overall, a fantastic experience—I will definitely be coming back for more!"
-  }, {
-    name: "Koru Pharma",
-    content: "I couldn't be happier with this purchase! From the moment I received it, I could tell that a lot of thought had gone into the design and craftsmanship. The material feels premium, and the attention to detail is evident in every aspect. Not only does it function perfectly, but it also adds a touch of elegance to my space. The ordering process was seamless, and the delivery was quicker than expected. Customer service was also incredibly responsive, addressing my questions right away. Overall, a fantastic experience—I will definitely be coming back for more!"
-  }, {
-    name: "Koru Pharma",
-    content: "I couldn't be happier with this purchase! From the moment I received it, I could tell that a lot of thought had gone into the design and craftsmanship. The material feels premium, and the attention to detail is evident in every aspect. Not only does it function perfectly, but it also adds a touch of elegance to my space. The ordering process was seamless, and the delivery was quicker than expected. Customer service was also incredibly responsive, addressing my questions right away. Overall, a fantastic experience—I will definitely be coming back for more!"
-  }, {
-    name: "Koru Pharma",
-    content: "I couldn't be happier with this purchase! From the moment I received it, I could tell that a lot of thought had gone into the design and craftsmanship. The material feels premium, and the attention to detail is evident in every aspect. Not only does it function perfectly, but it also adds a touch of elegance to my space. The ordering process was seamless, and the delivery was quicker than expected. Customer service was also incredibly responsive, addressing my questions right away. Overall, a fantastic experience—I will definitely be coming back for more!"
-  }, {
-    name: "Koru Pharma",
-    content: "I couldn't be happier with this purchase! From the moment I received it, I could tell that a lot of thought had gone into the design and craftsmanship. The material feels premium, and the attention to detail is evident in every aspect. Not only does it function perfectly, but it also adds a touch of elegance to my space. The ordering process was seamless, and the delivery was quicker than expected. Customer service was also incredibly responsive, addressing my questions right away. Overall, a fantastic experience—I will definitely be coming back for more!"
-  },
-]
-
-const ContentCard = ({name, content}) => {
-  return (
-    <>
-      <div className={styles.contentCard}>
-        <h3>{name}</h3>
-        <p>{content}</p>
-      </div>
-    </>
-  )
-}
+import { reviewsData } from './reviewsData'
+import ReviewCard from './ReviewCard'
+import ReviewModal from './ReviewModal'
+import { useBodyLock } from '../../Utils/useBodyLock'
 
 const ReviewsSection = () => {
+  const [selectedReview, setSelectedReview] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  useBodyLock(isModalOpen)
+
+  const handleCardClick = (review) => {
+    setSelectedReview(review)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedReview(null)
+  }
+
   return (
-    <div className={styles.reviewContainer}>
+    <section className={styles.reviewContainer} aria-labelledby="reviews-title">
       <div className={styles.title}>
-        <h2>reviews.</h2>
+        <h2 id="reviews-title">reviews.</h2>
       </div>
-      <div className={styles.reviewContent}>
-        {inputContent.map((c) => {
-          return <ContentCard name={c.name} content={c.content} />
-        })}
+      <div className={styles.reviewContent} role="region" aria-label="Customer reviews">
+        {reviewsData.map((review) => (
+          <ReviewCard
+            key={review.id}
+            review={review}
+            onCardClick={handleCardClick}
+          />
+        ))}
       </div>
-    </div>
+
+      <ReviewModal
+        review={selectedReview}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
+    </section>
   )
 }
 
