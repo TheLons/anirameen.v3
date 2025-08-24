@@ -36,7 +36,7 @@ const PartnerCard = ({ logo, alt }) => (
 
 const PartnerSection = () => {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.4 });
 
   const containerVariants = {
     hidden: { 

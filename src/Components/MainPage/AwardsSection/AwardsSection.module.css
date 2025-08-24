@@ -1,6 +1,7 @@
 .awardsContainer {
     width: 100%;
     padding: 60px 20px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +13,7 @@
     width: 100%;
     max-width: var(--width-max);
     margin-bottom: 40px;
+    opacity: 0; /* Initial state for animation */
 }
 
 .title h2 {
@@ -29,6 +31,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    opacity: 0; /* Initial state for animation */
 }
 
 .award {

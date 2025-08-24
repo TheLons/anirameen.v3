@@ -18,6 +18,7 @@
     max-width: var(--width-max);
     justify-content: center;
     margin-bottom: 60px;
+    opacity: 0; /* Initial state for animation */
 }
 
 .title h2 {
@@ -38,6 +39,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     align-items: stretch;
+    opacity: 0; /* Initial state for animation */
 }
 
 .contentCard {

@@ -12,7 +12,7 @@ import vertical_4 from '../../../assets/photo/vertical_4.png'
 
 const PhotoSection = () => {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.4 });
 
   const containerVariants = {
     hidden: { 

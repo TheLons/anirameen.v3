@@ -7,7 +7,7 @@ import ArrowRight from '../../../assets/icons/arrowRight.png'
 
 const VideoSection = () => {
     const ref = useRef(null)
-    const inView = useInView(ref, { once: true, amount: 0.3 });
+    const inView = useInView(ref, { once: true, amount: 0.4 });
     const [selectedVideo, setSelectedVideo] = useState(null);
 
     const containerVariants = {

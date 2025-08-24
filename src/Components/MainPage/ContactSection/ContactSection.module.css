@@ -26,12 +26,14 @@
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    opacity: 0; /* Initial state for animation */
 }
 
 .description {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    opacity: 0; /* Initial state for animation */
 }
 
 .title h2 {
@@ -160,4 +162,53 @@ input:focus, textarea:focus {
     .name input, .email input { height: 36px; }
     .message textarea { min-height: 100px; }
     .submitBtn { padding: 10px 16px; font-size: 13px; }
+}
+
+/* Loading and status states */
+.submitBtn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.submitBtn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submitBtn.success {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border-color: #4CAF50;
+}
+
+.submitBtn.error {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    border-color: #f44336;
+}
+
+/* Disabled form fields */
+input:disabled, textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: rgba(32, 32, 32, 0.6);
+}
+
+/* Focus states for disabled fields */
+input:disabled:focus, textarea:disabled:focus {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: none;
 }
