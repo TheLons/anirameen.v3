@@ -9,6 +9,7 @@ import riotGames from '../../../assets/partnerLogo/riotGames.png'
 import agaskin from '../../../assets/partnerLogo/agaskin.png'
 import kahi from '../../../assets/partnerLogo/kahi.png'
 import vbi from '../../../assets/partnerLogo/vbi.png'
+import meridian from '../../../assets/partnerLogo/meridian.png'
 
 const partners = [
   [
@@ -21,6 +22,7 @@ const partners = [
     { id: 4, logo: agaskin },
     { id: 5, logo: kahi },
     { id: 6, logo: vbi },
+    { id: 7, logo: meridian },
   ]
 ];
 

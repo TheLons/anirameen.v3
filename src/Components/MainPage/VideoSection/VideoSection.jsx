@@ -40,28 +40,28 @@ const VideoSection = () => {
 
     const video_preview_urls = [
         {
-            id: 'vct-pacific',
-            video_prev : "src/assets/videoPreview/riot.png",
+            id: 'showreel',
+            video_prev : "src/assets/videoPreview/showreel.jpg",
             video_url: "https://player.vimeo.com/video/1108432715?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-            video_heading: "VCT Pacific Trophy",
+            video_heading: "Showreel 2025",
+            video_text: "Director / Video Editor / Videographer",
+            hasVideo: true
+        },
+        {
+            id: 'riot',
+            video_prev: "src/assets/videoPreview/riot.jpg",
+            video_url: "https://www.youtube.com/embed/gp0TV-b1XaM?si=GT0yKfr2Xa8H8OK_",
+            video_heading: "The making of VCT Pacific Trophy",
             video_text: "Video Editor",
             hasVideo: true
         },
         {
             id: 'koru-pharma',
-            video_prev: "src/assets/videoPreview/koru.png",
-            video_url: "https://www.youtube.com/embed/gp0TV-b1XaM?si=GT0yKfr2Xa8H8OK_",
+            video_prev: "src/assets/videoPreview/koru-pharma.jpg",
+            video_url: "https://www.youtube.com/embed/GTUBLc3nyyc?si=-YyuALxNJ37CoQDR",
             video_heading: "Koru Pharma",
-            video_text: "Video Director / Video Editor",
+            video_text: "Video Director / Video Editor / Videographer",
             hasVideo: true
-        },
-        {
-            id: 'bmw-racing',
-            video_prev: "src/assets/videoPreview/car.png",
-            video_url: "https://www.youtube.com/watch?v=89BG9hEGI04&ab_channel=VALORANTEsportsSouthAsia",
-            video_heading: "BMW Racing",
-            video_text: "Video Director / Video Editor",
-            hasVideo: false
         }
     ]
 

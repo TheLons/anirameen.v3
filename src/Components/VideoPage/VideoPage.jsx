@@ -6,53 +6,114 @@ import Burger from '../../assets/icons/burger.png'
 import Close from '../../assets/icons/close.png'
 import playLogo from '../../assets/icons/playLogo.svg'
 
-const video_preview_urls = [
+const videos_list = [
     {
         id: 'vct-pacific',
-        video_prev : "src/assets/videoPreview/riot.png",
-        video_url: "https://player.vimeo.com/video/1108432715?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+        video_prev : "src/assets/videoPreview/riot.jpg",
+        video_url: "https://www.youtube.com/embed/gp0TV-b1XaM?si=AvHn1fiqvy9ziTb_",
         video_heading: "VCT Pacific Trophy",
         video_text: "Video Editor",
         hasVideo: true
     },
     {
         id: 'koru-pharma',
-        video_prev: "src/assets/videoPreview/koru.png",
-        video_url: "https://www.youtube.com/embed/gp0TV-b1XaM?si=GT0yKfr2Xa8H8OK_",
+        video_prev: "src/assets/videoPreview/koru-pharma.jpg",
+        video_url: "https://www.youtube.com/embed/GTUBLc3nyyc?si=dqQRWuWOrSkn4WB7",
         video_heading: "Koru Pharma",
         video_text: "Video Director / Video Editor",
         hasVideo: true
     },
     {
-        id: 'bmw-racing',
-        video_prev: "src/assets/videoPreview/car.png",
-        video_url: "https://www.youtube.com/watch?v=89BG9hEGI04&ab_channel=VALORANTEsportsSouthAsia",
-        video_heading: "BMW Racing",
+        id: 'vbi',
+        video_prev: "src/assets/videoPreview/vbi.jpg",
+        video_url: "https://player.vimeo.com/video/1019736661?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        video_heading: "VBI Promotional Video",
+        video_text: "Video Editor",
+        hasVideo: true
+    },
+    {
+        id: 'jhope',
+        video_prev: "src/assets/videoPreview/jhope.jpg",
+        video_url: "https://www.youtube.com/embed/JDaGyzKCfYg?si=sUvwiQpPZ6o4Gd5B",
+        video_heading: "j-hope (제이홉) 'MONA LISA' ",
+        video_text: "Video Director / Videographer / Video Editor",
+        hasVideo: true
+    },
+    {
+        id: 'suidae',
+        video_prev: "src/assets/videoPreview/suidae.jpg",
+        video_url: "https://player.vimeo.com/video/915087036?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        video_heading: "Suidae Short Film",
         video_text: "Video Director / Video Editor",
-        hasVideo: false
-    }
+        hasVideo: true
+    },
+    {
+        id: 'techlado',
+        video_prev: "src/assets/videoPreview/techlado.jpg",
+        video_url: "https://player.vimeo.com/video/800079014?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        video_heading: "TechLado Project Example",
+        video_text: "Video Editor",
+        hasVideo: true
+    },
 ]
 
-const VideoCard = ({ video_prev, video_heading, video_text, hasVideo, onClick }) => {
-    const heading = video_heading.split('\n').map((item, i) => {
-        return (
-            <p className={styles.videoHeading} key={i}>{item}</p>
-        )
-    })
-    const text = video_text.split('\n').map((item, i) => {
-        return (
-            <p className={styles.videoText} key={i}>{item}</p>
-        )
-    })
+// Use a separate data source for reels. Fill with real items as needed.
+const reels_list = [
+    {
+        id: 'tattoo',
+        video_prev: 'src/assets/videoPreview/tattoo.jpg',
+        video_url: 'https://player.vimeo.com/video/913238608?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+        video_heading: 'Tattoo Studio Promo',
+        video_text: 'Video Director / Videographer / Video Editor',
+        hasVideo: true
+    },
+    {
+        id: 'foundation',
+        video_prev: 'src/assets/videoPreview/foundation.jpg',
+        video_url: 'https://player.vimeo.com/video/1108342002?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+        video_heading: 'Promo Foundation',
+        video_text: 'Video Director / Videographer / Video Editor',
+        hasVideo: true
+    },
+    {
+        id: 'lounge',
+        video_prev: 'src/assets/videoPreview/lounge.jpg',
+        video_url: 'https://player.vimeo.com/video/929306447?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+        video_heading: 'Lounge Bar Promo',
+        video_text: 'Video Director / Videographer / Video Editor',
+        hasVideo: true
+    },
+    {
+        id: 'painter',
+        video_prev: 'src/assets/videoPreview/painter.jpg',
+        video_url: 'https://player.vimeo.com/video/848638896?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+        video_heading: 'Painter Social Promo',
+        video_text: 'Video Director / Videographer / Video Editor',
+        hasVideo: true
+    },
+]
+
+const MediaCard = ({ variant, video_prev, video_heading, video_text, hasVideo, onClick }) => {
+    const heading = video_heading.split('\n').map((item, i) => (
+        <p className={styles.videoHeading} key={i}>{item}</p>
+    ));
+    const text = video_text.split('\n').map((item, i) => (
+        <p className={styles.videoText} key={i}>{item}</p>
+    ));
+
+    const isReel = variant === 'reels';
+    const cardClass = isReel ? styles.reelCard : styles.video;
+    const contentClass = isReel ? styles.reelContent : styles.videoContent;
 
     return (
-        <div 
-            className={`${styles.video} ${hasVideo ? styles.clickable : ''}`}
+        <div
+            className={`${cardClass} ${hasVideo ? styles.clickable : ''}`}
             onClick={onClick}
         >
-            <div className={styles.videoContent} style={{
-                backgroundImage: `url(${video_prev})`,
-            }}>
+            <div
+                className={contentClass}
+                style={{ backgroundImage: `url(${video_prev})` }}
+            >
                 {hasVideo && (
                     <div className={styles.playOverlay}>
                         <img src={playLogo} alt="Play" />
@@ -64,41 +125,7 @@ const VideoCard = ({ video_prev, video_heading, video_text, hasVideo, onClick })
                 </div>
             </div>
         </div>
-    )
-}
-
-const ReelCard = ({ video_prev, video_heading, video_text, hasVideo, onClick }) => {
-    const heading = video_heading.split('\n').map((item, i) => {
-        return (
-            <p className={styles.videoHeading} key={i}>{item}</p>
-        )
-    })
-    const text = video_text.split('\n').map((item, i) => {
-        return (
-            <p className={styles.videoText} key={i}>{item}</p>
-        )
-    })
-
-    return (
-        <div 
-            className={`${styles.reelCard} ${hasVideo ? styles.clickable : ''}`}
-            onClick={onClick}
-        >
-            <div className={styles.reelContent} style={{
-                backgroundImage: `url(${video_prev})`,
-            }}>
-                {hasVideo && (
-                    <div className={styles.playOverlay}>
-                        <img src={playLogo} alt="Play" />
-                    </div>
-                )}
-                <div className={styles.description}>
-                    {heading}
-                    {text}
-                </div>
-            </div>
-        </div>
-    )
+    );
 }
 
 const VideoModal = ({ video, onClose }) => {
@@ -150,33 +177,7 @@ const VideoModal = ({ video, onClose }) => {
     );
 };
 
-const VideosComponent = ({ onVideoClick }) => {
-    return (
-        <div className={styles.videoComponent}>
-            {video_preview_urls.map((video) => (
-                <VideoCard 
-                    key={video.id}
-                    {...video} 
-                    onClick={() => onVideoClick(video)}
-                />
-            ))}
-        </div>
-    )
-}
-
-const ReelsComponent = ({ onVideoClick }) => {
-    return (
-        <div className={styles.reelsComponent}>
-            {video_preview_urls.map((video) => (
-                <ReelCard 
-                    key={video.id}
-                    {...video} 
-                    onClick={() => onVideoClick(video)}
-                />
-            ))}
-        </div>
-    )
-}
+// Removed VideosComponent and ReelsComponent in favor of inline rendering with MediaCard
 
 const VideoPage = () => {
     const [isActive, setIsActive] = useState('videos');
@@ -242,12 +243,19 @@ const VideoPage = () => {
             </nav>
             
             <main className={styles.mainContent}>
-                {isActive === 'videos' && (
-                    <VideosComponent onVideoClick={handleVideoClick} />
-                )}
-                {isActive === 'reels' && (
-                    <ReelsComponent onVideoClick={handleVideoClick} />
-                )}
+                <div className={isActive === 'reels' ? styles.reelsComponent : styles.videoComponent}>
+                    {(isActive === 'reels' ? reels_list : videos_list).map((video) => (
+                        <MediaCard
+                            key={video.id}
+                            variant={isActive}
+                            {...video}
+                            onClick={() => handleVideoClick(video)}
+                        />
+                    ))}
+                    {(isActive === 'reels' ? reels_list : videos_list).length === 0 && (
+                        <p style={{ color: '#ccc' }}>No {isActive} to display yet.</p>
+                    )}
+                </div>
             </main>
 
             {/* Video Modal */}

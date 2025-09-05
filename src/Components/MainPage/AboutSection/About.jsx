@@ -52,8 +52,8 @@ const About = () => {
               </h2>
             </motion.div>
             <motion.div className={styles.description} variants={itemVariants}>
-                <p>My name is Marina Ni. I'm videographer, motion designer, film director and video editor.</p>
-                <p>My passion, it to make everything look cinematic. Everything around us is a cinema and every life and story worth being remembered.</p>
+                <p>My name is Marina Ni. I am a videographer, motion designer, film director, and video editor.</p>
+                <p>My passion is to make everything look cinematic — because life itself is cinema, and every story is worth being remembered.</p>
             </motion.div>
             <motion.div className={styles.experience} variants={itemVariants}>
               <div className={styles.experience_container}>
