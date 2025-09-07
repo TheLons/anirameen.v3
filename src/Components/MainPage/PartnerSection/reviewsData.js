@@ -7,15 +7,15 @@ export const reviewsData = [
   },
   {
     id: 2,
-    name: "Core A Studios",
+    name: "Core-A Studios",
     content:
-      "Exceptional quality and outstanding service! The attention to detail in every aspect of this product is remarkable. The materials used are top-notch, and the craftsmanship is evident throughout. The ordering process was smooth, and delivery exceeded my expectations. The customer support team was incredibly helpful and responsive. I'm thoroughly impressed and will definitely recommend to others!",
+      "Marina has helped our team with a couple of projects and it's always been great to work with her. She has a great sense of current trends and her own artistic flair, I really liked seeing the unique spins she put on our projects. Whenever she delivered an early cut the clients had very few notes and projects finished ahead of schedule. Perhaps more importantly, I was impressed with the speed she worked at. Our whole team got along with her well and we would gladly work with her more in the future.",
   },
   {
     id: 3,
-    name: "Riot Games",
+    name: "ChillOut",
     content:
-      "Absolutely outstanding experience from start to finish! The quality of this product is exceptional - you can feel the premium materials and see the expert craftsmanship. The design is both beautiful and functional, perfectly suited for my needs. The ordering and delivery process was flawless, and the customer service team was incredibly professional and helpful. Highly recommend!",
+      "We would like to say, that we didn't expect anything from the video, but it turned out very cool! You perfectly showed the vibe and atmosphere of the place through the video. You are very professional! It was really comfortable and easy to work with you, thank you very much for the work you've done!"
   },
   {
     id: 4,

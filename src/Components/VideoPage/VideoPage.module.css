@@ -10,7 +10,7 @@
 .header {
     height: 300px;
     width: 100%;
-    background-image: url(../../assets/backgrounds/videoBackgorund.png);
+    background-image: url(../../assets/backgrounds/camera.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
