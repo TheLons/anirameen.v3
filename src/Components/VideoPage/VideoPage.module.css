@@ -349,6 +349,17 @@
     pointer-events: auto;
 }
 
+/* Reel Modal Styles */
+.reelModalContent {
+    width: 400px !important;
+    max-width: 90vw;
+}
+
+.reelWrapper {
+    padding-bottom: 177.78% !important; /* 9:16 aspect ratio for vertical videos */
+    background-color: var(--background-color);
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -482,6 +493,11 @@
         max-height: 90vh;
     }
     
+    .reelModalContent {
+        width: 350px !important;
+        max-width: 95vw;
+    }
+    
     .videoModalTitle {
         font-size: 20px;
         margin-bottom: 15px;
@@ -517,6 +533,11 @@
         padding: 10px;
         width: 98vw;
         max-height: 95vh;
+    }
+    
+    .reelModalContent {
+        width: 300px !important;
+        max-width: 98vw;
     }
     
     .videoModalTitle {

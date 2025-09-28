@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { motion, useAnimation, useTransform, useScroll } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './HeroSection.module.css'
 
 import qrCode from '../../../assets/icons/qrCode.png'
@@ -83,6 +84,11 @@ const HeroSection = () => {
       });
     }, 100);
 
+    // const routePath = useLocation();
+    // useEffect(() => {
+    //   window.scrollTo(0, 0);
+    // }, [routePath])
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -103,7 +109,7 @@ const HeroSection = () => {
         <ul>
           <li><FlipLink href="/Video">VIDEO_PROJECTS,</FlipLink></li>
           {/* <li><FlipLink href="/photo">GALLERY,</FlipLink></li> */}
-          <li><FlipLink href="#">CONTACTS,</FlipLink></li>
+          {/* <li><FlipLink href="/contact">CONTACTS,</FlipLink></li> */}
         </ul>
       </header>
       <div className={styles.tagsContainer}>

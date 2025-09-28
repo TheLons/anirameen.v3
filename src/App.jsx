@@ -4,6 +4,7 @@ import './App.css'
 
 import MainPage from './Components/MainPage/MainPage'
 import VideoPage from './Components/VideoPage/VideoPage'
+import ContactPage from './Components/ContactPage/ContactPage'
 // import PhotoPage from './Components/PhotoPage/PhotoPage'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/Home" element={<MainPage />} />
         <Route path="/Video" element={<VideoPage />}/>
+        {/* <Route path="/contact" element={<ContactPage />}/> */}
         {/* <Route path="/photo" element={<PhotoPage />}/> */}
       </Routes>
     </Router>

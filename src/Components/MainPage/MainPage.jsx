@@ -63,11 +63,11 @@ const MainPage = () => {
             </motion.div>
             <About />
             <VideoSection />
-            <PhotoSection />
+            {/* <PhotoSection /> */}
             <PartnerSection />
             <ReviewsSection />
             <AwardsSection />
-            <ContactSection />
+            {/* <ContactSection /> */}
         </div>
     )
 }

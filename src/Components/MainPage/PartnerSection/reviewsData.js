@@ -19,7 +19,7 @@ export const reviewsData = [
   },
   {
     id: 4,
-    name: "VBI Media",
+    name: "LeeTattoo Studio",
     content:
       "This exceeded all my expectations! The quality is exceptional, with premium materials and expert craftsmanship evident in every detail. The design is both elegant and practical, perfectly complementing my space. The entire process from ordering to delivery was seamless, and the customer service was outstanding. I'm extremely satisfied and will definitely purchase again!",
   },

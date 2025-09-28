@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './VideoSection.module.css'
 import playLogo from '../../../assets/icons/playLogo.svg'
 import { motion, useInView } from 'framer-motion'
@@ -102,7 +103,7 @@ const VideoSection = () => {
                     ))}
                 </div>
             </motion.div>
-            <motion.a 
+            <motion.div 
                 className={styles.showMore}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -112,8 +113,13 @@ const VideoSection = () => {
                     delay: 1.2, // Appears after all videos
                 }}
             >
-                <p>Show more</p>
-            </motion.a>
+                <Link 
+                    to="/Video" 
+                    className={styles.link}
+                >
+                    <p>Show more</p>
+                </Link>
+            </motion.div>
 
             {/* Video Modal */}
             {selectedVideo && (

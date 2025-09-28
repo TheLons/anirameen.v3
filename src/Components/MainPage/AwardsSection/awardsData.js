@@ -12,7 +12,7 @@ export const awardsData = [
     name: 'Tokyo International Short Film Festival',
     information: '2022 / Winner',
     description:
-      'Step into an evening of glamour, recognition, and inspiration at the Annual Excellence Awards Festival. This prestigious event brings together visionaries, creatives, and changemakers to honor outstanding achievements across a variety of fields. From captivating performances to heartfelt tributes, this night celebrates the brilliance and dedication that shape our world.',
+      'The Tokyo International Short Film Festival celebrates independent short films worldwide, with a focus on powerful human stories and fresh perspectives. It offers a platform for bold voices in both international and Asian cinema.',
   },
   {
     id: 'arrow',
@@ -20,7 +20,7 @@ export const awardsData = [
     name: 'Arrow International Film Festival',
     information: '2022 / Winner',
     description:
-      'Step into an evening of glamour, recognition, and inspiration at the Annual Excellence Awards Festival. This prestigious event brings together visionaries, creatives, and changemakers to honor outstanding achievements across a variety of fields. From captivating performances to heartfelt tributes, this night celebrates the brilliance and dedication that shape our world.',
+      'The Arrow International Film Festival was launched in 2020 and spotlights bold voices in global independent cinema. It unites filmmakers and audiences through compelling stories, supporting creativity across genres and honoring standout achievements.',
   },
   {
     id: 'aura',
@@ -28,7 +28,7 @@ export const awardsData = [
     name: 'AURA Film Festival',
     information: '2022 / Winner',
     description:
-      'Step into an evening of glamour, recognition, and inspiration at the Annual Excellence Awards Festival. This prestigious event brings together visionaries, creatives, and changemakers to honor outstanding achievements across a variety of fields. From captivating performances to heartfelt tributes, this night celebrates the brilliance and dedication that shape our world.',
+      'The AURA Film Festival is a global gathering of filmmakers showcasing works in documentary, fiction, animation, and social-video, alongside visual arts like poster and photography. Excellence is celebrated through awards and community engagement via screens, both indoors and under the open sky.',
   },
   {
     id: 'emerald',
@@ -36,7 +36,7 @@ export const awardsData = [
     name: 'Emerald Peacock Honorable Mention',
     information: '2022 / Honorable Mention',
     description:
-      'Step into an evening of glamour, recognition, and inspiration at the Annual Excellence Awards Festival. This prestigious event brings together visionaries, creatives, and changemakers to honor outstanding achievements across a variety of fields. From captivating performances to heartfelt tributes, this night celebrates the brilliance and dedication that shape our world.',
+      'Emerald Peacock is a monthly international film festival based in Berlin, showcasing works across film, script, music video, photography, and more.',
   },
   {
     id: 'golden',
@@ -44,7 +44,7 @@ export const awardsData = [
     name: 'Golden Giraffe International Film Festival',
     information: '2022 / Official Selection',
     description:
-      'Step into an evening of glamour, recognition, and inspiration at the Annual Excellence Awards Festival. This prestigious event brings together visionaries, creatives, and changemakers to honor outstanding achievements across a variety of fields. From captivating performances to heartfelt tributes, this night celebrates the brilliance and dedication that shape our world.',
+      'Golden Giraffe International Film Festival is a French film festival that gives awards for artistic achievement, including categories like experimental film and music.',
   },
   {
     id: 'teeb',
@@ -52,6 +52,6 @@ export const awardsData = [
     name: 'Teeb TV Malaysia Mental Health Film Festival',
     information: '2022 / Official Selection',
     description:
-      'Step into an evening of glamour, recognition, and inspiration at the Annual Excellence Awards Festival. This prestigious event brings together visionaries, creatives, and changemakers to honor outstanding achievements across a variety of fields. From captivating performances to heartfelt tributes, this night celebrates the brilliance and dedication that shape our world.',
+      'The Teeb TV Malaysia Mental Health Film Festival is an annual event in Kuala Lumpur showcasing films on mental health. Organized by Hamsa Media and Teeb TV, it features screenings, discussions, and workshops, fostering dialogue on well-being.',
   },
 ]

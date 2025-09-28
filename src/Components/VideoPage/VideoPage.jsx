@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 import styles from './VideoPage.module.css'
 import Burger from '../../assets/icons/burger.png'
@@ -128,7 +128,7 @@ const MediaCard = ({ variant, video_prev, video_heading, video_text, hasVideo, o
     );
 }
 
-const VideoModal = ({ video, onClose }) => {
+const VideoModal = ({ video, isReel, onClose }) => {
     const handleBackdropClick = (e) => {
         if (e.target === e.currentTarget) {
             onClose();
@@ -150,7 +150,7 @@ const VideoModal = ({ video, onClose }) => {
             aria-modal="true"
             aria-labelledby="video-modal-title"
         >
-            <div className={styles.videoModalContent}>
+            <div className={`${styles.videoModalContent} ${isReel ? styles.reelModalContent : ''}`}>
                 <button 
                     className={styles.closeButton}
                     onClick={onClose}
@@ -161,7 +161,7 @@ const VideoModal = ({ video, onClose }) => {
                 <h2 id="video-modal-title" className={styles.videoModalTitle}>
                     {video.video_heading}
                 </h2>
-                <div className={styles.videoWrapper}>
+                <div className={`${styles.videoWrapper} ${isReel ? styles.reelWrapper : ''}`}>
                     <iframe 
                         src={video.video_url}
                         width="100%"
@@ -183,6 +183,12 @@ const VideoPage = () => {
     const [isActive, setIsActive] = useState('videos');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [selectedVideo, setSelectedVideo] = useState(null);
+    const routePath = useLocation();
+
+    // Scroll to top of the page
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [routePath])
 
     const handleMenuClick = (menu) => {
         setIsActive(menu);
@@ -260,7 +266,7 @@ const VideoPage = () => {
 
             {/* Video Modal */}
             {selectedVideo && (
-                <VideoModal video={selectedVideo} onClose={closeVideo} />
+                <VideoModal video={selectedVideo} isReel={isActive === 'reels'} onClose={closeVideo} />
             )}
 
             {/* Overlay Menu */}
@@ -270,9 +276,9 @@ const VideoPage = () => {
                 </div>
                 <nav className={styles.overlayLinks}>
                     <Link to="/" onClick={toggleMenu}>HOME</Link>
-                    <Link to="/video" onClick={toggleMenu}>VIDEO</Link>
-                    <Link to="/photo" onClick={toggleMenu}>PHOTO</Link>
-                    <Link to="/contact" onClick={toggleMenu}>CONTACT</Link>
+                    {/* <Link to="/video" onClick={toggleMenu}>VIDEO</Link> */}
+                    {/* <Link to="/photo" onClick={toggleMenu}>PHOTO</Link> */}
+                    {/* <Link to="/contact" onClick={toggleMenu}>CONTACT</Link> */}
                 </nav>
             </div>
         </div>
