@@ -36,7 +36,7 @@
 
 .title h2 {
     font-weight: 900;
-    font-size: 40px;
+    font-size: clamp(28px, 6vw, 40px);
     background-image: var(--main-gradient);
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -58,9 +58,32 @@
     width: 100%;
     flex-direction: column;
     color: var(--second-text-color);
-    font-size: 32px;
+    font-size: clamp(18px, 4vw, 32px);
     font-weight: 400;
     opacity: 0;
+}
+
+@media (max-width: 900px) {
+    .title h2 {
+        font-size: clamp(22px, 7vw, 32px);
+    }
+    .description {
+        font-size: clamp(16px, 5vw, 28px);
+    }
+}
+
+@media (max-width: 600px) {
+    .descContainer {
+        gap: 24px;
+        max-height: none;
+        min-height: 50vh;
+    }
+    .title h2 {
+        font-size: clamp(18px, 9vw, 24px);
+    }
+    .description {
+        font-size: clamp(13px, 5vw, 19px);
+    }
 }
 
 #topRight, #topLeft, #bottomRight, #bottomLeft {
@@ -106,7 +129,7 @@
     width: auto;
     align-items: center;
     color: var(--second-text-color);
-    font-size: 20px;
+    font-size: clamp(14px, 3vw, 20px);
     width: 207px;
     text-align: center;
 }
@@ -116,6 +139,6 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent; /* Fallback */
-    font-size: 40px;
+    font-size: clamp(22px, 6vw, 40px);
     font-weight: 900;
 }

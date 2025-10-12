@@ -9,7 +9,7 @@
     justify-content: center;
 
     overflow-x: hidden;
-    background-color: var(--background-color);
+    box-sizing: border-box;    
 }
 
 .title {
@@ -40,6 +40,7 @@
     gap: 30px;
     align-items: stretch;
     opacity: 0; /* Initial state for animation */
+    box-sizing: border-box;
 }
 
 .contentCard {
@@ -84,12 +85,10 @@
     font-size: clamp(14px, 2.5vw, 16px);
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
-    flex-grow: 1;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
-    margin-bottom: 20px;
 }
 
 .readMore {

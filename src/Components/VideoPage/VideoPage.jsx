@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import Lenis from 'lenis'
 
 import styles from './VideoPage.module.css'
 import Burger from '../../assets/icons/burger.png'
@@ -88,6 +89,22 @@ const reels_list = [
         video_prev: 'src/assets/videoPreview/painter.jpg',
         video_url: 'https://player.vimeo.com/video/848638896?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
         video_heading: 'Painter Social Promo',
+        video_text: 'Video Director / Videographer / Video Editor',
+        hasVideo: true
+    },
+    {
+        id: 'wonhwa1',
+        video_prev: 'src/assets/videoPreview/wonhwa1.jpg',
+        video_url: 'https://player.vimeo.com/video/1122561736?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+        video_heading: 'Beauty box promotion at London Hallyu Festival',
+        video_text: 'Video Director / Video Editor',
+        hasVideo: true
+    },
+    {
+        id: 'wonhwa2',
+        video_prev: 'src/assets/videoPreview/wonhwa2.jpg',
+        video_url: 'https://player.vimeo.com/video/1122573461?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+        video_heading: 'Beauty box promotion at London Hallyu Festival',
         video_text: 'Video Director / Videographer / Video Editor',
         hasVideo: true
     },
@@ -184,11 +201,39 @@ const VideoPage = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [selectedVideo, setSelectedVideo] = useState(null);
     const routePath = useLocation();
+    const lenisRef = useRef(null);
 
     // Scroll to top of the page
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, [routePath])
+    }, [routePath])
+
+    // Initialize Lenis smooth scrolling
+    useEffect(() => {
+        lenisRef.current = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenisRef.current?.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        return () => {
+            if (lenisRef.current) {
+                lenisRef.current.destroy();
+            }
+        };
+    }, []);
 
     const handleMenuClick = (menu) => {
         setIsActive(menu);

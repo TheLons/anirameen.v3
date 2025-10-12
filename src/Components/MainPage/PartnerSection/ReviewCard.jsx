@@ -19,7 +19,12 @@ const ReviewCard = ({ review, onCardClick }) => {
       aria-label={`Click to read full review from ${name}`}
     >
       <h3>{name}</h3>
-      <p>{content}</p>
+      <p className={styles.cardText}>{content.split("\n").map((line, index) => (
+        <span key={index}>
+          {line}
+          <br />
+        </span>
+      ))}</p>
       <div className={styles.readMore}>
         <span>Click to read more</span>
       </div>

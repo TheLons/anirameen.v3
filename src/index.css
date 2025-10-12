@@ -23,3 +23,41 @@ body {
    margin: 0;
    padding: 0;
 }
+
+/* Disable hover effects on touch devices to prevent accidental triggering */
+@media (hover: none) and (pointer: coarse) {
+  *:hover {
+    /* Disable all hover effects on touch devices */
+    transform: none !important;
+    opacity: 1 !important;
+    background-color: initial !important;
+    border-color: initial !important;
+    color: initial !important;
+    box-shadow: initial !important;
+  }
+  
+  /* Re-enable hover effects only on click/touch for interactive elements */
+  .clickable:active,
+  .card:active,
+  .video:active,
+  .reelCard:active,
+  .award:active,
+  .contentCard:active,
+  .submitBtn:active,
+  .closeButton:active,
+  .burger:active,
+  .tabButton:active {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(110, 213, 229, 0.2) !important;
+  }
+  
+  .video:active .playOverlay,
+  .reelCard:active .playOverlay {
+    opacity: 1 !important;
+  }
+  
+  .video:active .videoContent,
+  .reelCard:active .reelContent {
+    opacity: 0.8 !important;
+  }
+}

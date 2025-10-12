@@ -34,7 +34,12 @@ const ReviewModal = ({ review, isOpen, onClose }) => {
           ×
         </button>
         <h2 id="modal-title">{review.name}</h2>
-        <p>{review.content}</p>
+        <p>{review.content.split("\n").map((line, index) => (
+        <span key={index}>
+          {line}
+          <br />
+        </span>
+      ))}</p>
       </div>
     </div>
   )

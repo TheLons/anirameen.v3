@@ -65,14 +65,15 @@
     width: var(--width-max);
     height: fit-content;
     display: flex;
+    flex-direction: row;
     gap: 80px;
     margin-top: 60px;
     font-size: 24px;
     font-weight: 600;
     list-style: none;
     padding: 0;
+    justify-content: center;
 }
-
 .tabButton {
     background: none;
     border: none;
@@ -194,6 +195,10 @@
 }
 
 .video.clickable:hover .playOverlay {
+    opacity: 1;
+}
+
+.reelCard.clickable:hover .playOverlay {
     opacity: 1;
 }
 
@@ -504,6 +509,42 @@
     }
 }
 
+@media (max-width: 900px) {
+    .subMenu {
+        gap: 36px;
+        margin-top: 32px;
+        font-size: 20px;
+    }
+    .tabButton {
+        font-size: 20px;
+        padding: 10px 12px;
+    }
+}
+@media (max-width: 600px) {
+    .subMenu {
+        gap: 20px;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .tabButton {
+        font-size: 20px;
+        padding: 7px 10px;
+    }
+}
+@media (max-width: 420px) {
+    .subMenu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+    }
+    .tabButton {
+        font-size: 20px;
+        padding: 7px 10px;
+        width: 80vw;
+    }
+}
+
 @media (max-width: 480px) {
     .header {
         height: 200px;
@@ -525,7 +566,7 @@
     }
     
     .tabButton {
-        font-size: 18px;
+        font-size: 20px;
         padding: 8px 10px;
     }
     
